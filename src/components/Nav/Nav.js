@@ -5,16 +5,23 @@ import "./Nav.css";
 // Component for the Navbar
 
 const Nav = props => (
-  <nav className="navbar">
-    <ul>
-      <li className="brand">
-        <a href="/">Clicky Game</a>
-      </li>
-      <NavMessage score={props.score} topScore={props.topScore} />
-      <li>
-        Score: {props.score} | Top Score: {props.topScore}
-      </li>
-    </ul>
+  <nav className="jumbotron">
+
+    <div className="row">
+    <NavMessage score={props.score} topScore={props.topScore} />
+    </div>
+     
+    <div className="row">
+      <div className="alert alert-primary">
+      Score: {props.score}
+      </div >
+      <div className="alert alert-danger">
+      Top Score: {props.topScore}
+      </div>
+    </div>
+
+        
+
   </nav>
 );
 

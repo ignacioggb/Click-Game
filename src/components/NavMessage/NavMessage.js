@@ -19,27 +19,38 @@ class NavMessage extends Component {
       newState.message = "correct";
     }
     this.setState(newState, () =>
-      setTimeout(() => this.setState({ animating: false }), 500)
+      setTimeout(() => this.setState({ animating: false }), 1000)
     );
   }
 
   renderMessage = () => {
     switch (this.state.message) {
     case "correct":
-      return "You guessed correctly!";
+      return "Si!";
     case "incorrect":
-      return "You guessed incorrectly!";
+      return "You Lose";
     default:
-      return "Click an image to begin!";
+      return "click any card, but dont click a card twice";
     }
   };
 
   render() {
-    return (
-      <li className={this.state.animating ? this.state.message : ""}>
-        {this.renderMessage()}
-      </li>
-    );
+
+    if (this.state.message === "incorrect") {
+      return (
+        <h2 className={this.state.animating ? this.state.message+" shake text-danger" : ""}>
+          {this.renderMessage()}
+        </h2>
+      );
+    } else {
+      return (
+        <h2 className={this.state.animating ? this.state.message : ""}>
+          {this.renderMessage()}
+        </h2>
+      );
+    }
+
+
   }
 }
 
